@@ -226,6 +226,7 @@
     </inertial>
 
     <collision>
+        <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
         <geometry>
           <cylinder length="0.0206" radius="0.0352"/>
         </geometry>
@@ -267,6 +268,7 @@
     </inertial>
 
     <collision>
+        <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
         <geometry>
           <cylinder length="0.0206" radius="0.0352"/>
         </geometry>
@@ -308,6 +310,7 @@
     </inertial>
 
     <collision>
+        <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
         <geometry>
           <cylinder length="0.005" radius="0.0352"/>
         </geometry>
@@ -340,6 +343,7 @@
     </inertial>
 
     <collision>
+        <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
         <geometry>
           <cylinder length="0.005" radius="0.0352"/>
         </geometry>
@@ -372,6 +376,7 @@
     </inertial>
 
     <collision>
+      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
       <geometry>
         <sphere radius="0.0352"/>
       </geometry>
@@ -413,6 +418,7 @@
     </inertial>
 
     <collision>
+        <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
         <geometry>
           <cylinder length="0.005" radius="0.0352"/>
         </geometry>
@@ -446,6 +452,7 @@
     </inertial>
 
     <collision>
+        <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
         <geometry>
           <cylinder length="0.005" radius="0.0352"/>
         </geometry>
@@ -479,6 +486,7 @@
     </inertial>
 
     <collision>
+      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
       <geometry>
         <sphere radius="0.0352"/>
       </geometry>
@@ -550,4 +558,37 @@
 
     </plugin>
   </gazebo>
+
+  <!-- Coloring Links within Gazebo  -->
+  <gazebo reference="chassis">
+    <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <gazebo reference="cup_tray">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <gazebo reference="standoff_rod_front_left">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="standoff_rod_front_right">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="standoff_rod_back_left">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="standoff_rod_back_right">
+        <material>Gazebo/White</material>
+    </gazebo>
+
+    <gazebo reference="back_yaw_link">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <gazebo reference="back_roll_link">
+        <material>Gazebo/Red</material>
+    </gazebo>
 </robot>
