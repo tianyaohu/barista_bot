@@ -136,4 +136,171 @@
     <child link="cup_tray" />
   </joint>
 
+  <!-- Motorized Left WHeel -->
+   <link name="left_wheel">      
+      <visual>
+        <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+        <geometry>
+          <cylinder length="0.0206" radius="0.0352"/>
+        </geometry>
+        <material name="black"/>
+      </visual>
+  </link>
+
+  <joint name="joint_left_wheel" type="continuous">
+    <origin rpy="0 0 0" xyz="0 0.128 -0.0775"/>
+    <child link="left_wheel"/>
+    <parent link="chassis"/>
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <limit effort="10000" velocity="1000"/>
+    <joint_properties damping="1.0" friction="1.0"/>
+  </joint>
+
+
+  <!-- Motorized Right WHeel -->
+   <link name="right_wheel">      
+      <visual>
+        <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+        <geometry>
+          <cylinder length="0.0206" radius="0.0352"/>
+        </geometry>
+        <material name="black"/>
+      </visual>
+  </link>
+
+  <joint name="joint_right_wheel" type="continuous">
+    <origin rpy="0 0 0" xyz="0 -0.128 -0.0775"/>
+    <child link="right_wheel"/>
+    <parent link="chassis"/>
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <limit effort="10000" velocity="1000"/>
+    <joint_properties damping="1.0" friction="1.0"/>
+  </joint>
+
+  <!-- Caster Front Wheel -->
+   <!-- yaw -->
+  <link name="front_yaw_link">
+    <visual>
+        <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+        <geometry>
+          <cylinder length="0.005" radius="0.0352"/>
+        </geometry>
+        <material name="blue"/>
+      </visual>
+  </link>
+
+  <joint name="front_yaw_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="0.12 0 -0.0775" />
+    <parent link="chassis" />
+    <child link="front_yaw_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="1000.0" velocity="100.0" />
+    <dynamics damping="0.0" friction="0.1"/>
+  </joint>
+
+<!-- roll -->
+  <link name="front_roll_link">
+      <visual>
+        <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+        <geometry>
+          <cylinder length="0.005" radius="0.0352"/>
+        </geometry>
+        <material name="red"/>
+      </visual>
+  </link>
+
+  <joint name="front_roll_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="0 0 0" />
+    <parent link="front_yaw_link" />
+    <child link="front_roll_link" />
+    <axis xyz="1 0 0" />
+    <limit effort="1000.0" velocity="100.0" />
+    <dynamics damping="0.0" friction="0.1"/>
+  </joint>
+
+<!-- pitch -->
+  <link name="front_pitch_link">
+    <visual>
+      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+      <geometry>
+        <sphere radius="0.0352"/>
+      </geometry>
+      <material name="green_dark"/>
+    </visual>
+  </link>
+
+  <joint name="front_pitch_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="0 0 0" />
+    <parent link="front_roll_link" />
+    <child link="front_pitch_link" />
+    <axis xyz="0 1 0" />
+    <limit effort="1000.0" velocity="100.0" />
+    <dynamics damping="0.0" friction="0.1"/>
+  </joint>
+
+
+<!-- Caster Wheel Back -->
+  <link name="back_yaw_link">
+    <visual>
+        <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+        <geometry>
+          <cylinder length="0.005" radius="0.0352"/>
+        </geometry>
+        <material name="blue"/>
+      </visual>
+  </link>
+
+  <joint name="back_yaw_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="-0.12 0 -0.0775" />
+    <parent link="chassis" />
+    <child link="back_yaw_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="1000.0" velocity="100.0" />
+    <dynamics damping="0.0" friction="0.1"/>
+  </joint>
+
+
+
+  <link name="back_roll_link">
+      <visual>
+        <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+        <geometry>
+          <cylinder length="0.005" radius="0.0352"/>
+        </geometry>
+        <material name="red"/>
+      </visual>
+  </link>
+
+  <joint name="back_roll_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="0 0 0" />
+    <parent link="back_yaw_link" />
+    <child link="back_roll_link" />
+    <axis xyz="1 0 0" />
+    <limit effort="1000.0" velocity="100.0" />
+    <dynamics damping="0.0" friction="0.1"/>
+  </joint>
+
+
+
+  <link name="back_pitch_link">
+    <visual>
+      <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+      <geometry>
+        <sphere radius="0.0352"/>
+      </geometry>
+      <material name="green_light"/>
+    </visual>
+  </link>
+
+  <joint name="back_pitch_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="0 0 0" />
+    <parent link="back_roll_link" />
+    <child link="back_pitch_link" />
+    <axis xyz="0 1 0" />
+    <limit effort="1000.0" velocity="100.0" />
+    <dynamics damping="0.0" friction="0.1"/>
+  </joint>
+
+
+
 </robot>
