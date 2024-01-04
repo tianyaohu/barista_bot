@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="barista_bot">
 
 <xacro:include filename="$(find barista_robot_description)/xacro/wheel.xacro" />
-<!-- <xacro:include filename="$(find barista_robot_description)/xacro/standoff.xacro" /> -->
+<xacro:include filename="$(find barista_robot_description)/xacro/standoff.xacro" />
 
 <!-- Color -->
 <material name="red">
@@ -96,7 +96,33 @@
     <joint_properties damping="1.0" friction="1.0"/>
 </joint>
 
-<!--  -->
+<!-- Standoff -->
+<xacro:standoff standoff_name="standoff_rod_front_left"/>
+<joint name="standoff_rod_FL_to_chassis_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.05 0.12 0.1875" />
+    <parent link="chassis" />
+    <child link="standoff_rod_front_left" />
+</joint>
 
+<xacro:standoff standoff_name="standoff_rod_back_left"/>
+<joint name="standoff_rod_BL_to_chassis_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.05 0.12 0.1875" />
+    <parent link="chassis" />
+    <child link="standoff_rod_back_left" />
+</joint>
+
+<xacro:standoff standoff_name="standoff_rod_front_right"/>
+<joint name="standoff_rod_FR_to_chassis_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.05 -0.12 0.1875" />
+    <parent link="chassis" />
+    <child link="standoff_rod_front_right" />
+</joint>
+
+<xacro:standoff standoff_name="standoff_rod_back_right"/>
+<joint name="standoff_rod_BR_to_chassis_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.05 -0.12 0.1875" />
+    <parent link="chassis" />
+    <child link="standoff_rod_back_right" />
+</joint>
 
 </robot>
