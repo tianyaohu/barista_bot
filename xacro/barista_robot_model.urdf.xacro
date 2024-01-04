@@ -69,9 +69,9 @@
 </link>
 
 <joint name="base_link_joint" type="fixed">
-<origin rpy="0 0 0" xyz="0 0 0" />
-<parent link="base_link" />
-<child link="chassis" />
+    <origin rpy="0 0 0" xyz="0 0 0" />
+    <parent link="base_link" />
+    <child link="chassis" />
 </joint>
 
 <!-- Wheel Macro -->
@@ -124,5 +124,15 @@
     <parent link="chassis" />
     <child link="standoff_rod_back_right" />
 </joint>
+
+<!-- Cup Tray -->
+<xacro:cup_holder cup_holder_name="cup_tray"/>
+<joint name="cup_tray_to_chassis_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.3425" />
+    <parent link="chassis" />
+    <child link="cup_tray" />
+</joint>
+
+<!-- Caster Wheels -->
 
 </robot>

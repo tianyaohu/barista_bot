@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- RVIZ Color -->
+<material name="blue">
+    <color rgba="0.0 0.0 1.0 1"/>
+</material>
+
+<!-- Parameters -->
+<xacro:property name="cup_holder_height" value="0.09"/>
+<xacro:property name="cup_holder_diameter" value="0.32"/>
+
+<!-- cup_holder Macro -->
+<xacro:macro name="cup_holder" params="cup_holder_name">
+  <link name="${cup_holder_name}">   
+    <visual>
+        <geometry>
+            <cylinder length="${cup_holder_height}" radius="${cup_holder_diameter/2}"/>
+        </geometry>
+        <material name="blue"/>
+    </visual>
+
+    <collision>
+        <geometry>
+            <cylinder length="${cup_holder_height}" radius="${cup_holder_diameter/2}"/>
+        </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="0.02"/>
+      <inertia ixx="0.00008117" ixy="0" ixz="0" iyy="0.00008117" iyz="0" izz="0.000001"/>
+    </inertial>
+
+  </link>
+
+</xacro:macro>
+    
+</robot>   
