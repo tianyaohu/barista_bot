@@ -33,13 +33,13 @@
   </link>
 
 
-  <!-- Body -->
+  <!-- Cylinder Base -->
   <link name="chassis">
     <visual>
       <geometry>
-        <cylinder length="0.155" radius="0.356"/>
+        <cylinder length="0.155" radius="0.178"/>
       </geometry>
-      <material name="box_bot_blue"/>
+      <material name="blue"/>
     </visual>
   </link>
 
@@ -48,5 +48,81 @@
     <parent link="base_link" />
     <child link="chassis" />
   </joint>
+
+  <!-- FL standoff rods -->
+  <link name="standoff_rod_front_left">
+    <visual>
+      <geometry>
+        <cylinder length="0.22" radius="0.01"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <joint name="standoff_rod_FL_to_chassis_joint" type="fixed">
+    <!-- <origin rpy="0 0 0" xyz="0.025 0.05 0.0775" /> -->
+    <origin rpy="0 0 0" xyz="0.05 0.12 0.1875" />
+
+    <parent link="chassis" />
+    <child link="standoff_rod_front_left" />
+  </joint>
+  
+  <!-- BL standoff rods -->
+  <link name="standoff_rod_back_left">
+    <visual>
+      <geometry>
+        <cylinder length="0.22" radius="0.01"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <joint name="standoff_rod_BL_to_chassis_joint" type="fixed">
+    <!-- <origin rpy="0 0 0" xyz="0.025 0.05 0.0775" /> -->
+    <origin rpy="0 0 0" xyz="-0.05 0.12 0.1875" />
+
+    <parent link="chassis" />
+    <child link="standoff_rod_back_left" />
+  </joint>
+
+
+  <!-- FR standoff rods -->
+  <link name="standoff_rod_front_right">
+    <visual>
+      <geometry>
+        <cylinder length="0.22" radius="0.01"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <joint name="standoff_rod_FR_to_chassis_joint" type="fixed">
+    <!-- <origin rpy="0 0 0" xyz="0.025 0.05 0.0775" /> -->
+    <origin rpy="0 0 0" xyz="0.05 -0.12 0.1875" />
+
+    <parent link="chassis" />
+    <child link="standoff_rod_front_right" />
+  </joint>
+  
+  <!-- BR standoff rods -->
+  <link name="standoff_rod_back_right">
+    <visual>
+      <geometry>
+        <cylinder length="0.22" radius="0.01"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <joint name="standoff_rod_BR_to_chassis_joint" type="fixed">
+    <!-- <origin rpy="0 0 0" xyz="0.025 0.05 0.0775" /> -->
+    <origin rpy="0 0 0" xyz="-0.05 -0.12 0.1875" />
+
+    <parent link="chassis" />
+    <child link="standoff_rod_back_right" />
+  </joint>
+
+  <!-- Cup Tray -->
+
 
 </robot>
