@@ -1,11 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<!-- RVIZ Color -->
-<material name="blue">
-    <color rgba="0.0 0.0 1.0 1"/>
-</material>
-
 <!-- Parameters -->
 <xacro:property name="cup_holder_height" value="0.09"/>
 <xacro:property name="cup_holder_diameter" value="0.32"/>

@@ -3,6 +3,7 @@
 
 <xacro:include filename="$(find barista_robot_description)/xacro/wheel.xacro" />
 <xacro:include filename="$(find barista_robot_description)/xacro/standoff.xacro" />
+<xacro:include filename="$(find barista_robot_description)/xacro/cup_holder_tray.xacro" />
 
 <!-- Color -->
 <material name="red">
