@@ -89,8 +89,8 @@ def generate_launch_description():
     # Robot State Publisher
 
     return LaunchDescription([
-        # gazebo,
-        # spawn_entity,
+        gazebo,
+        spawn_entity,
         robot_state_publisher,
         launch_ros.actions.Node(
             package='joint_state_publisher_gui',
