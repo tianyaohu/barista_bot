@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="barista_bot">
 
+<xacro:include filename="$(find barista_robot_description)/xacro/wheel.xacro" />
+<!-- <xacro:include filename="$(find barista_robot_description)/xacro/standoff.xacro" /> -->
+
 <!-- Color -->
 <material name="red">
     <color rgba="1.0 0.0 0.0 1"/>
@@ -22,10 +25,6 @@
     <color rgba="0.0 0.0 0.0 1"/>
 </material>
 
-<material name="white">
-    <color rgba="1.0 1.0 1.0 1"/>
-</material>
-
 <material name="box_bot_blue">
     <color rgba="0.088656 0.428691 0.491021 1"/>
 </material>
@@ -34,9 +33,6 @@
 <!-- Dimension Parameters -->
 <xacro:property name="base_width" value="0.356"/>
 <xacro:property name="base_height" value="0.155"/>
-
-<xacro:property name="standoff_height" value="0.22"/>
-<xacro:property name="standoff_diameter" value="0.02"/>
 
 <xacro:property name="cup_tray_width" value="0.32"/>
 <xacro:property name="cup_tray_height" value="0.09"/>
@@ -77,5 +73,18 @@
 <parent link="base_link" />
 <child link="chassis" />
 </joint>
+
+<!-- Wheel Macro -->
+<xacro:wheel wheel_name="left_wheel"/>
+
+<joint name="joint_left_wheel" type="continuous">
+    <origin rpy="0 0 0" xyz="0 0.128 -0.0775"/>
+    <child link="left_wheel"/>
+    <parent link="chassis"/>
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <limit effort="10000" velocity="1000"/>
+    <joint_properties damping="1.0" friction="1.0"/>
+</joint>
+
 
 </robot>

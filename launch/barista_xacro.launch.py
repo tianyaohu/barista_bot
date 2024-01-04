@@ -8,7 +8,7 @@ from launch.substitutions import Command
 from ament_index_python.packages import get_package_prefix
 
 import xacro
-
+import launch_ros
 
 def generate_launch_description():
 
@@ -70,7 +70,7 @@ def generate_launch_description():
     ############### RVIZ ################
     ####### DATA INPUT ##########
     # urdf_file = 'barista_robot_model.urdf'
-    xacro_file = "barista_robot_model.xacro"
+    xacro_file = "barista_robot_model.urdf.xacro"
     package_description = "barista_robot_description"
 
 
@@ -86,9 +86,16 @@ def generate_launch_description():
             parameters=[{'use_sim_time': True}],
             arguments=['-d', rviz_config_dir])
 
+    # Robot State Publisher
+
     return LaunchDescription([
-        gazebo,
-        spawn_entity,
-        rviz_node,
+        # gazebo,
+        # spawn_entity,
         robot_state_publisher,
+        launch_ros.actions.Node(
+            package='joint_state_publisher_gui',
+            executable='joint_state_publisher_gui',
+            output='screen',
+        ),
+        rviz_node,
     ])
