@@ -1,10 +1,12 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<xacro:property name="wheel_width" value="0.0206"/>
-<xacro:property name="wheel_radius" value="0.0352"/>
+
 
 <xacro:macro name="wheel" params="wheel_name">
+
+    <xacro:property name="wheel_width" value="0.0206"/>
+    <xacro:property name="wheel_radius" value="0.0352"/>
 
     <link name="${wheel_name}">   
         <visual>

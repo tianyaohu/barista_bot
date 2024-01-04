@@ -116,6 +116,7 @@
 
   <joint name="standoff_rod_BL_to_chassis_joint" type="fixed">
     <origin rpy="0 0 0" xyz="-0.05 0.12 0.1875" />
+
     <parent link="chassis" />
     <child link="standoff_rod_back_left" />
   </joint>

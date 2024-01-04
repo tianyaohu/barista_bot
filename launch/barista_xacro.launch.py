@@ -75,7 +75,7 @@ def generate_launch_description():
 
 
     # RVIZ Configuration
-    rviz_config_dir = os.path.join(get_package_share_directory(package_description), 'rviz', 'xacro_vis.rviz')
+    rviz_config_dir = os.path.join(get_package_share_directory(package_description), 'rviz', 'urdf_vis.rviz')
 
 
     rviz_node = Node(
@@ -92,10 +92,10 @@ def generate_launch_description():
         gazebo,
         spawn_entity,
         robot_state_publisher,
-        launch_ros.actions.Node(
-            package='joint_state_publisher_gui',
-            executable='joint_state_publisher_gui',
-            output='screen',
-        ),
+        # launch_ros.actions.Node(
+        #     package='joint_state_publisher_gui',
+        #     executable='joint_state_publisher_gui',
+        #     output='screen',
+        # ),
         rviz_node,
     ])
