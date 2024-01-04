@@ -86,5 +86,17 @@
     <joint_properties damping="1.0" friction="1.0"/>
 </joint>
 
+<xacro:wheel wheel_name="right_wheel"/>
+<joint name="joint_right_wheel" type="continuous">
+    <origin rpy="0 0 0" xyz="0 -0.128 -0.0775"/>
+    <child link="right_wheel"/>
+    <parent link="chassis"/>
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <limit effort="10000" velocity="1000"/>
+    <joint_properties damping="1.0" friction="1.0"/>
+</joint>
+
+<!--  -->
+
 
 </robot>
