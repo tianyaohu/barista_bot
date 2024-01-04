@@ -28,6 +28,7 @@ install(
 	worlds
 	meshes
     urdf
+	xacro
     rviz
     launch
   DESTINATION
