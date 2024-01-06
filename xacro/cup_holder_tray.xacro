@@ -6,13 +6,13 @@
 <xacro:property name="cup_holder_diameter" value="0.32"/>
 
 <!-- cup_holder Macro -->
-<xacro:macro name="cup_holder" params="cup_holder_name">
+<xacro:macro name="cup_holder" params="cup_holder_name rviz_material">
   <link name="${cup_holder_name}">   
     <visual>
         <geometry>
             <cylinder length="${cup_holder_height}" radius="${cup_holder_diameter/2}"/>
         </geometry>
-        <material name="blue"/>
+        <material name="${rviz_material}"/>
     </visual>
 
     <collision>
