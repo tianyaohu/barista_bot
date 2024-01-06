@@ -63,7 +63,7 @@ def generate_launch_description():
     robot_name_1 = "morty"
     robot_name_2 = "rick"
 
-    rsp_robot1 = Node(
+    rsp_morty = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
         name='robot_state_publisher',
@@ -73,7 +73,7 @@ def generate_launch_description():
         output="screen"
     )
 
-    rsp_robot2 = Node(
+    rsp_rick = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
         name='robot_state_publisher',
@@ -83,25 +83,46 @@ def generate_launch_description():
         output="screen"
     )
 
-    spawn_robot1 = Node(
+    spawn_morty = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
-        arguments=['-entity', 'robot1', '-x', '0.0', '-y', '0.0', '-z', '0.2',
+        arguments=['-entity', 'morty', '-x', '0.0', '-y', '0.0', '-z', '0.2',
                    '-topic', robot_name_1+'/robot_description']
     )
 
-    spawn_robot2 = Node(
+    spawn_rick = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
-        arguments=['-entity', 'robot2', '-x', '1.0', '-y', '1.0', '-z', '0.2',
+        arguments=['-entity', 'rick', '-x', '1.0', '-y', '1.0', '-z', '0.2',
                    '-topic', robot_name_2+'/robot_description']
     )
+
+    morty_static_tf_pub = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_transform_publisher_morty_odom',
+        output='screen',
+        emulate_tty=True,
+        arguments=['0', '0', '0', '0', '0', '0', 'world', 'morty/odom']
+    )
+
+    rick_static_tf_pub = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_transform_publisher_morty_odom',
+        output='screen',
+        emulate_tty=True,
+        arguments=['0', '0', '0', '0', '0', '0', 'world', 'rick/odom']
+    )
+
 
     return LaunchDescription([
         world_file_arg,
         gazebo,
-        rsp_robot1,
-        rsp_robot2,
-        spawn_robot1,
-        spawn_robot2
+        rsp_morty,
+        rsp_rick,
+        spawn_morty,
+        spawn_rick,
+        morty_static_tf_pub,
+        rick_static_tf_pub
     ])
